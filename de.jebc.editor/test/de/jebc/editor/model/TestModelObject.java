@@ -8,10 +8,19 @@ import org.junit.Test;
 public class TestModelObject {
 
 	@Test
-	public void testModelObjectNeedsNameOnCreation() throws Exception {
+	public void needsNameOnCreation() throws Exception {
 		ModelObject sut = new ModelObject("Hallo") {
 		};
 		assertThat(sut, is(not(equalTo(null))));
 		assertThat(sut.getName(), is(equalTo("Hallo")));
+	}
+	
+	@Test public void canChangeNameAfterCreation() {
+		ModelObject sut = new ModelObject("Hallo") {
+		};
+		
+		sut.setName("NewName");
+		
+		assertThat(sut.getName(), is(equalTo("NewName")));
 	}
 }
