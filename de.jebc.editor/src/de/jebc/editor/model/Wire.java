@@ -4,6 +4,10 @@ import java.lang.reflect.Type;
 
 public class Wire extends ModelObject {
 
+	public Wire(String name) {
+		super(name);
+	}
+
 	private OutPin startPoint;
 
 	public OutPin getStartPoint() {

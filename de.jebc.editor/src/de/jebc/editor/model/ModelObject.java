@@ -1,11 +1,12 @@
 package de.jebc.editor.model;
 
-public class ModelObject {
+public abstract class ModelObject {
 
 	private String name;
 
-	public ModelObject() {
+	public ModelObject(String name) {
 		super();
+		this.name = name;
 	}
 
 	public String getName() {
