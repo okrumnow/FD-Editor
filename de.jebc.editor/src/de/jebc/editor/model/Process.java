@@ -7,6 +7,10 @@ public class Process extends Part {
 	}
 
 	public void addInPin(InPin inPin) {
+		if (inputs.contains(inPin))
+			throw new IllegalArgumentException("InPin with name "
+					+ inPin.getName() + "already erxists for Process "
+					+ getName());
 		inputs.add(inPin);
 	}
 
