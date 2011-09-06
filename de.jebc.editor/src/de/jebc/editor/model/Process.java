@@ -6,4 +6,8 @@ public class Process extends Part {
 		super(name);
 	}
 
+	public void addInPin(InPin inPin) {
+		inputs.add(inPin);
+	}
+
 }
