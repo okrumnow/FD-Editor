@@ -20,4 +20,11 @@ public class TestProcess {
 		
 		assertThat(sut.getInputPins().size(), is(1));
 	}
+	
+	@Test public void cannAddMoreThanOneInPin() {
+		sut.addInPin(new InPin(""));
+		sut.addInPin(new InPin(""));
+		
+		assertThat(sut.getInputPins().size(), is(2));
+	}
 }
