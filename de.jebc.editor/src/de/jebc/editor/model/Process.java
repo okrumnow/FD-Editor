@@ -14,4 +14,12 @@ public class Process extends Part {
 		inputs.add(inPin);
 	}
 
+	public void addOutPin(OutPin outPin) {
+		if (outputs.contains(outPin))
+			throw new IllegalArgumentException("OutPin with name "
+					+ outPin.getName() + "already exists for Process "
+					+ getName());
+		outputs.add(outPin);
+	}
+
 }

@@ -10,9 +10,13 @@ public abstract class Part extends ModelObject {
 	}
 	
 	protected ArrayList<InPin> inputs = new ArrayList<InPin>();
-	private ArrayList<OutPin> outputs = new ArrayList<OutPin>();
+	protected ArrayList<OutPin> outputs = new ArrayList<OutPin>();
 	
 	public Collection<InPin> getInputPins() {
 		return inputs;
+	}
+
+	public Collection<OutPin> getOutPins() {
+		return outputs;
 	}
 }
