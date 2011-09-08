@@ -12,7 +12,7 @@ public abstract class Part extends ModelObject {
 	protected ArrayList<InPin> inputs = new ArrayList<InPin>();
 	protected ArrayList<OutPin> outputs = new ArrayList<OutPin>();
 	
-	public Collection<InPin> getInputPins() {
+	public Collection<InPin> getInPins() {
 		return inputs;
 	}
 

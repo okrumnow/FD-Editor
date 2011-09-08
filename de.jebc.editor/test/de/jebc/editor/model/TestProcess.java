@@ -19,7 +19,7 @@ public class TestProcess {
 	public void canAddInPin() {
 		sut.addInPin(new InPin(""));
 
-		assertThat(sut.getInputPins().size(), is(1));
+		assertThat(sut.getInPins().size(), is(1));
 	}
 
 	@Test
@@ -27,7 +27,7 @@ public class TestProcess {
 		sut.addInPin(new InPin("a"));
 		sut.addInPin(new InPin("b"));
 
-		assertThat(sut.getInputPins().size(), is(2));
+		assertThat(sut.getInPins().size(), is(2));
 	}
 
 	@Test(expected = IllegalArgumentException.class)
