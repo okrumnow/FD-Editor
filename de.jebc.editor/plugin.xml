@@ -5,8 +5,8 @@
          point="org.eclipse.ui.editors">
       <editor
             class="de.jebc.editor.ui.FlowDesignEditor"
-            default="true"
-            extensions="fde"
+            default="false"
+            extensions="java"
             id="de.jebc.editor.flowdesigneditor"
             name="Flow Design Editor">
       </editor>
