@@ -1,8 +1,15 @@
 package de.jebc.editor.model;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
+import java.util.Collection;
+
 public abstract class ModelObject {
 
+	private static final String NAME_PROPERTY = "name";
 	private String name;
+	protected PropertyChangeSupport listeners;
 
 	public ModelObject(String name) {
 		super();
@@ -13,8 +20,18 @@ public abstract class ModelObject {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String newName) {
+		String old = this.name;
+		this.name = newName;
+		listeners.firePropertyChange(NAME_PROPERTY, old, newName);
+	}
+	
+	public void addPropertyChangeListener(PropertyChangeListener newListener) {
+		listeners.addPropertyChangeListener(newListener);
+	}
+	
+	public void removePropertyChangeListeer(PropertyChangeListener oldListener) {
+		listeners.removePropertyChangeListener(oldListener);
 	}
 
 	@Override
