@@ -10,7 +10,6 @@ import org.eclipse.ui.PartInitException;
 
 import de.jebc.editor.controller.ControllerFactory;
 import de.jebc.editor.model.utils.ModelProvider;
-import de.jebc.editor.model.utils.TestModelFactory;
 
 public class FlowDesignEditor extends GraphicalEditorWithFlyoutPalette {
 
@@ -38,7 +37,7 @@ public class FlowDesignEditor extends GraphicalEditorWithFlyoutPalette {
 	@Override
 	protected void initializeGraphicalViewer() {
 		super.initializeGraphicalViewer();
-		getGraphicalViewer().setContents(TestModelFactory.create());
+		getGraphicalViewer().setContents(provider.getModel());
 	}
 
 	@Override

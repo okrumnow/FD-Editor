@@ -2,12 +2,14 @@ package de.jebc.editor.model.utils;
 
 import org.eclipse.ui.IEditorInput;
 
+import de.jebc.editor.model.FlowDiagram;
 import de.jebc.editor.model.ModelObject;
+import de.jebc.editor.model.Process;
 
 public class ModelProvider {
 
 	private final IEditorInput input;
-	private ModelObject model;
+	private FlowDiagram model;
 
 	public ModelProvider(IEditorInput input) {
 		this.input = input;
@@ -21,6 +23,8 @@ public class ModelProvider {
 	}
 
 	private void buildModel() {
+		model = new FlowDiagram(input.getName());
+		model.setObject(new Process(input.getName()));
 	}
 
 }
