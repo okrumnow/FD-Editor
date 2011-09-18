@@ -4,16 +4,28 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.gef.DefaultEditDomain;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.ui.parts.GraphicalEditorWithFlyoutPalette;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.PartInitException;
 
 import de.jebc.editor.controller.ControllerFactory;
-import de.jebc.editor.model.utils.TestModelFactory;
+import de.jebc.editor.model.utils.ModelProvider;
 
 public class FlowDesignEditor extends GraphicalEditorWithFlyoutPalette {
 
 	
+	private ModelProvider provider;
+
 	public FlowDesignEditor() {
 		super();
 		setEditDomain(new DefaultEditDomain(this));
+	}
+	
+	@Override
+	public void init(IEditorSite site, IEditorInput input)
+			throws PartInitException {
+		super.init(site, input);
+		provider = new ModelProvider(input);
 	}
 	
 	@Override
@@ -25,7 +37,7 @@ public class FlowDesignEditor extends GraphicalEditorWithFlyoutPalette {
 	@Override
 	protected void initializeGraphicalViewer() {
 		super.initializeGraphicalViewer();
-		getGraphicalViewer().setContents(TestModelFactory.create());
+		getGraphicalViewer().setContents(provider.getModel());
 	}
 
 	@Override
